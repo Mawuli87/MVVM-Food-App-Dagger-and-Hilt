@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/recipesFragment">
+
+    <fragment
+        android:id="@+id/recipesFragment"
+        android:name="com.messieyawo.advancedfoodapp.ui.fragments.recipes.RecipesFragment"
+        android:label="Food"
+        tools:layout="@layout/fragment_recipes" >
+        <argument
+            android:name="backFromBottomSheet"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <action
+            android:id="@+id/action_recipesFragment_to_rcipeBottomSheetFragment"
+            app:destination="@id/recipeBottomSheetFragment" />
+        <action
+            android:id="@+id/action_recipesFragment_to_detailsActivity"
+            app:destination="@id/detailsActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteRecipesFragment"
+        android:name="com.messieyawo.advancedfoodapp.ui.fragments.favorite.FavoriteRecipesFragment"
+        android:label="Favorite recipes"
+        tools:layout="@layout/fragment_favorite_recipes" >
+        <action
+            android:id="@+id/action_favoriteRecipesFragment_to_detailsActivity"
+            app:destination="@id/detailsActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodJokeFragment"
+        android:name="com.messieyawo.advancedfoodapp.ui.fragments.foodJoke.FoodJokeFragment"
+        android:label="Food Joke"
+        tools:layout="@layout/fragment_food_joke" />
+    <dialog
+        android:id="@+id/recipeBottomSheetFragment"
+        android:name="com.messieyawo.advancedfoodapp.ui.fragments.recipes.recipeBottomSheet.RcipeBottomSheetFragment"
+        android:label="RcipeBottomSheetFragment" >
+        <action
+            android:id="@+id/action_recipeBottomSheetFragment_to_recipesFragment"
+            app:destination="@id/recipesFragment" />
+    </dialog>
+    <activity
+        android:id="@+id/detailsActivity"
+        android:name="com.messieyawo.advancedfoodapp.ui.activities.DetailsActivity"
+        android:label="Details" >
+        <argument
+            android:name="result"
+            app:argType="com.messieyawo.advancedfoodapp.model.Result" />
+    </activity>
+    <fragment
+        android:id="@+id/ingredientsFragment"
+        android:name="com.messieyawo.advancedfoodapp.ui.fragments.detailsActivity.instructions.IngredientsFragment"
+        android:label="fragment_ingredients"
+        tools:layout="@layout/fragment_ingredients" />
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="com.messieyawo.advancedfoodapp.ui.fragments.detailsActivity.overview.OverviewFragment"
+        android:label="OverviewFragment" />
+    <fragment
+        android:id="@+id/instructionsFragment"
+        android:name="com.messieyawo.advancedfoodapp.ui.fragments.detailsActivity.ingredients.InstructionsFragment"
+        android:label="InstructionsFragment" />
+</navigation>
